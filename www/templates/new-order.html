@@ -1,0 +1,9 @@
+<ion-view view-title="Chats"  on-swipe-left="onSwipeLeft()">
+    <ion-content style="display:block">
+        <div class="list listbox">
+            <div class="item" ng-repeat="item in items" ng-click="clicked(item)" ng-class="{ active: item.selected }">{{ item.name }}</div>
+        </div>
+
+        {{selected}}
+    </ion-content>
+</ion-view>

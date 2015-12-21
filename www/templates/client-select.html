@@ -1,0 +1,19 @@
+<ion-view view-title="Dashboard">
+
+    <ion-content>
+
+
+        <label class="item item-input">
+            <input type="search" placeholder="Search" ng-change="search()" ng-model="data.search">
+        </label>
+
+        <div class="list">
+            <li ng-show="data.search" class="item" ng-repeat="client in clients | filter: data.search">
+                {{client.name}}
+            </li>
+        </div>
+    </ion-content>
+
+</ion-view>
+
+
