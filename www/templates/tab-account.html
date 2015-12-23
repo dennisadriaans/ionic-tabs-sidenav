@@ -1,9 +1,12 @@
 <ion-view view-title="Account">
   <ion-content>
     <ion-list>
-    <ion-toggle  ng-model="settings.enableFriends">
-        Enable Friends
-    </ion-toggle>
+        <ion-item ng-repeat="order in orders | orderBy: '-created_at'" ng-click="watchOrder(order.id)">
+            <div class="row">
+                <div class="col col-90">{{order.id}}  -  {{order.client.name}}</div>
+                <div class="col">{{order.created_at | myDateFormat}}</div>
+            </div>
+        </ion-item>
     </ion-list>
   </ion-content>
 </ion-view>

@@ -9,8 +9,11 @@ app.run(function($ionicPlatform) {
 
     }
   });
+})
 
-
+app.config(function($httpProvider) {
+    // We need to setup some parameters for http requests
+    // These three lines are all you need for CORS support
 })
 
 app.config(function($stateProvider, $urlRouterProvider) {
@@ -37,7 +40,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
   })
 
   .state('tab.order', {
-      url: '/order',
+      url: '/order/:id',
       views: {
         'tab-order': {
           templateUrl: 'templates/new-order.html',
@@ -51,12 +54,19 @@ app.config(function($stateProvider, $urlRouterProvider) {
     views: {
       'tab-account': {
         templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
+        controller: 'OrderCtrl'
       }
     }
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/order');
+  $urlRouterProvider.otherwise('/');
 
+});
+
+app.filter('myDateFormat', function myDateFormat($filter){
+    return function(text){
+        var  tempdate= new Date(text.replace(/-/g,"/"));
+        return $filter('date')(tempdate, "MMM dd");
+    }
 });

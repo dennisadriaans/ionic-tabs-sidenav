@@ -2,15 +2,18 @@
 
     <ion-content>
 
-
         <label class="item item-input">
             <input type="search" placeholder="Search" ng-change="search()" ng-model="data.search">
         </label>
 
         <div class="list">
-            <li ng-show="data.search" class="item" ng-repeat="client in clients | filter: data.search">
+            <li ng-show="data.search" ng-model="client" class="item" ng-repeat="client in clients | filter: data.search" ng-click="selectClient(client)">
                 {{client.name}}
             </li>
+        </div>
+
+        <div class="bar bar-dark" ng-click="showPopup()">
+            <h1 class="title">Nieuwe toevoegen</h1>
         </div>
     </ion-content>
 

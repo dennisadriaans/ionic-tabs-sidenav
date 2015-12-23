@@ -1,9 +1,13 @@
 <ion-view view-title="Chats"  on-swipe-left="onSwipeLeft()">
     <ion-content style="display:block">
         <div class="list listbox">
-            <div class="item" ng-repeat="item in items" ng-click="clicked(item)" ng-class="{ active: item.selected }">{{ item.name }}</div>
+            <div class="item" ng-repeat="product in products" ng-click="clicked(product)" ng-class="{ active: product.selected }">{{ product.title }}</div>
         </div>
-
-        {{selected}}
+        <button class="button button-light" ng-click="payment('pin', newOrder.price)">
+            PIN
+        </button>
+        <button class="button button-stable" ng-click="payment('cash', newOrder.price)">
+            CASH
+        </button>
     </ion-content>
 </ion-view>
