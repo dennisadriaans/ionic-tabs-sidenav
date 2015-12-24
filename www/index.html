@@ -18,33 +18,32 @@
     <script src="js/controllers/MainCtrl.js"></script>
     <script src="js/controllers/ClientCtrl.js"></script>
     <script src="js/controllers/OrderCtrl.js"></script>
+    <script src="js/controllers/AccountCtrl.js"></script>
 
     <script src="js/services/ClientService.js"></script>
     <script src="js/services/ProductService.js"></script>
     <script src="js/services/OrderService.js"></script>
 
 </head>
-<body ng-app="starter">
+<body ng-app="starter" ng-controller="MainCtrl">
 
+    <ion-side-menus>
+        <ion-side-menu-content  ng-class="{'open-menu':fixedHeader === true}">
+            <ion-header-bar align-title="left" class="bar-positive">
+                <div class="buttons">
+                    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+                </div>
+                <h1 class="title">{{fixedHeader}}!</h1>
+            </ion-header-bar>
 
+            <ion-nav-view>
+            </ion-nav-view>
+        </ion-side-menu-content>
 
-<ion-side-menus>
-    <ion-side-menu-content>
-        <ion-header-bar align-title="left" class="bar-positive">
-            <div class="buttons">
-                <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
-            </div>
-            <h1 class="title">Title!</h1>
-        </ion-header-bar>
-
-        <ion-nav-view>
-        </ion-nav-view>
-    </ion-side-menu-content>
-
-    <ion-side-menu side="left">
-        Left Menu!
-    <ion-side-menu>
-</ion-side-menus>
+        <ion-side-menu side="left">
+            Left Menu!
+        <ion-side-menu>
+    </ion-side-menus>
 
 </body>
 </html>

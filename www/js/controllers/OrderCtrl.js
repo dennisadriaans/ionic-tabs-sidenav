@@ -1,4 +1,4 @@
-app.controller('OrderCtrl', function($scope, $state, Products, Orders, $http, $ionicPopup) {
+app.controller('OrderCtrl', function($scope, $state, Products, Orders, $http, $ionicPopup, $window) {
 
     $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
 
@@ -7,6 +7,7 @@ app.controller('OrderCtrl', function($scope, $state, Products, Orders, $http, $i
 
     //query to db
     $scope.products = Products.query();
+    $scope.orders = Orders.query();
 
     //make a order
     //add products      total + added.product.price
@@ -41,32 +42,14 @@ app.controller('OrderCtrl', function($scope, $state, Products, Orders, $http, $i
                 template: 'De betaling is opgeslagen.'
             });
 
-            $scope.orders.push({'e': $scope.newOrder});
-            console.log($scope.orders);
-
             alertPopup.then(function(res) {
-                console.log('Thank you for not eating my delicious ice cream cone');
+                $window.location.reload();
+                $state.go('tab.account');
             });
         };
         $scope.showAlert();
     }
 
-    $scope.orders = Orders.query();
-    console.log($scope.orders);
-
-    $scope.watchOrder = function(id) {
-        Orders.get({id: id}).$promise.then(function(order) {
-
-            var alertPopup = $ionicPopup.alert({
-                title: order.client.name,
-                template: '{order descroption}'
-            });
-
-            alertPopup.then(function(res) {
-                console.log('Thank you for not eating my delicious ice cream cone');
-            });
-        });
-    }
 
     //var total count
     //var btw

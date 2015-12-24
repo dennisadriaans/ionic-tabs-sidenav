@@ -54,7 +54,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     views: {
       'tab-account': {
         templateUrl: 'templates/tab-account.html',
-        controller: 'OrderCtrl'
+        controller: 'AccountCtrl'
       }
     }
   });

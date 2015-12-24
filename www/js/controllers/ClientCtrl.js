@@ -43,7 +43,10 @@ app.controller('ClientCtrl', function($scope, Clients, $ionicPopup, $http, $stat
     //pass client to ordercontroller
     $scope.selectClient = function(client) {
         $scope.selectedClient = client;
+
+        $scope.$emit('open-nav');
         $state.go('tab.order', {id: client.id});
+
     }
 
 });

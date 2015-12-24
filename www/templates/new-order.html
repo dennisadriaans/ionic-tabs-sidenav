@@ -3,6 +3,12 @@
         <div class="list listbox">
             <div class="item" ng-repeat="product in products" ng-click="clicked(product)" ng-class="{ active: product.selected }">{{ product.title }}</div>
         </div>
+
+        <label class="item item-input">
+            <span class="input-label">Notitie</span>
+            <input type="text">
+        </label>
+
         <button class="button button-light" ng-click="payment('pin', newOrder.price)">
             PIN
         </button>
@@ -11,3 +17,11 @@
         </button>
     </ion-content>
 </ion-view>
+<style>
+    @media (min-width: 767px) {
+        .open-menu {
+            -webkit-transform: translate3d(270px, 0px, 0px) !important;
+            width: calc(100% - 270px) !important;
+        }
+    }
+</style>
